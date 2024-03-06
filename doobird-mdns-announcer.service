@@ -1,0 +1,12 @@
+[Unit]
+Description=Announcing DoorBird doorbell via mTLS
+
+[Service]
+WorkingDirectory=/opt/anime-matrix-datetime-battery
+User=%USER
+Type=simple
+ExecStart=python3 announcer.py -a %ANNOUNCE
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
