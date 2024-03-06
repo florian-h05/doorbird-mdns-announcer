@@ -13,7 +13,7 @@ mDNS discovery is required to work for the DoorBird Android and iOS apps.
 1. Change ownership to your user with `sudo chown -R $USER:$USER doorbird-mdns-announcer`
 1. cd into that folder with `cd doorbird-mdns-announcer`
 1. Install dependencies with `pip install -r requirements.txt`
-1. Set up the systemd service file:
+1. Set up the systemd service file (`nano doorbird-mdns-announcer.service`):
    - Replace `%USER` with your username.
    - Replace `%ANNOUNCE` with your DoorBird's mac and ip, format is `mac/ip`
    - Optionally set up the interfaces.
