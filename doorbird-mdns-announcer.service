@@ -2,7 +2,7 @@
 Description=Announcing DoorBird doorbell via mTLS
 
 [Service]
-WorkingDirectory=/opt/anime-matrix-datetime-battery
+WorkingDirectory=/opt/doorbird-mdns-announcer
 User=%USER
 Type=simple
 ExecStart=python3 announcer.py -a %ANNOUNCE
