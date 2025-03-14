@@ -8,7 +8,7 @@ import argparse
 import sys
 from time import sleep
 
-from zeroconf import IPVersion, ServiceInfo, InterfaceChoice, Zeroconf
+from zeroconf import IPVersion, ServiceInfo, InterfaceChoice, Zeroconf, NonUniqueNameException
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -39,14 +39,20 @@ if __name__ == '__main__':
     )
 
     zeroconf = Zeroconf(interfaces=args.interface or InterfaceChoice.All, ip_version=IPVersion.V4Only)
-    print("Registration of the DoorBird service, press Ctrl-C to exit...")
-    zeroconf.register_service(info)
+    print("Registration of the DoorBird service, press Ctrl-C to exit ...")
+    try:
+        zeroconf.register_service(info)
+    except NonUniqueNameException:
+        print("Error: A device with the same name is already registered")
+        zeroconf.close()
+        sys.exit(1)
+    
     try:
         while True:
             sleep(0.1)
     except KeyboardInterrupt:
         pass
     finally:
-        print("Unregistering...")
+        print("Unregistering ...")
         zeroconf.unregister_service(info)
         zeroconf.close()

@@ -2,10 +2,10 @@
 Description=Announcing DoorBird doorbell via mTLS
 
 [Service]
-WorkingDirectory=/opt/doorbird-mdns-announcer
+WorkingDirectory=/opt/doorbird-mdns-announcer/app
 User=%USER
 Type=simple
-ExecStart=python3 announcer.py -a %ANNOUNCE
+ExecStart=python3 main.py -a %ANNOUNCE
 ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]
