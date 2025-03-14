@@ -29,7 +29,7 @@ docker run --network host -e ADVERTISE="mac/ip" ghcr.io/florian-h05/doorbird-mdn
 ## Using Docker Compose
 
 Use the [docker-compose.yml](docker-compose.yml) in this repository to run with Docker Compose.
-Specify the `ANNOUNCE` env variable in `mac/ip` format,
+Specify the `ADVERTISE` env variable in `mac/ip` format,
 and optionally the `INTERFACES` env variable with the IP addresses of the interfaces to advertise from.
 
 # Run with systemd
@@ -42,7 +42,7 @@ and optionally the `INTERFACES` env variable with the IP addresses of the interf
 1. Install dependencies with `pip install -r app/requirements.txt`
 1. Set up the systemd service file (`nano doorbird-mdns-announcer.service`):
    - Replace `%USER` with your username.
-   - Replace `%ANNOUNCE` with your DoorBird's mac and ip, format is `mac/ip`
+   - Replace `%ADVERTISE` with your DoorBird's mac and ip, format is `mac/ip`
    - Optionally set up the interfaces.
 1. Copy the systemd service file with `sudo cp doorbird-mdns-announcer.service /etc/systemd/system`
 1. Enable and start the service with `sudo systemctl enable --now doorbird-mdns-announcer`
