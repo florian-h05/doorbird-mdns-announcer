@@ -21,6 +21,6 @@ COPY app/main.py /app/main.py
 COPY entrypoint.sh /entrypoint.sh
 
 # Install dependencies
-RUN pip install -r /app/requirements.txt
+RUN pip install -r /app/requirements.txt --root-user-action ignore
 
 ENTRYPOINT ["/entrypoint.sh"]
