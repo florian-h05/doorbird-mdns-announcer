@@ -1,6 +1,6 @@
 services:
   doorbird-mdns-announcer:
-    image: ghcr.io/florian-h05/doorbird-mdns-announcer:main
+    image: ghcr.io/florian-h05/doorbird-mdns-announcer:latest
     network_mode: host
     environment:
       - ADVERTISE=
