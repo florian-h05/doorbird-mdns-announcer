@@ -2,7 +2,7 @@
 
 if [ -n "$INTERFACE" ]
 then
-  exec python /app/main.py --advertise "$ADVERTISE" --interface "$INTERFACE"
+  exec python -u /app/main.py --advertise "$ADVERTISE" --interface "$INTERFACE"
 else
-  exec python /app/main.py --advertise "$ADVERTISE"
+  exec python -u /app/main.py --advertise "$ADVERTISE"
 fi
